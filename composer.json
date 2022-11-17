@@ -1,0 +1,17 @@
+{
+    "name": "bben95/auth",
+    "description": "Mise en pratique des notions apprises en php en implémentant l'architecture MVC",
+    "type": "project",
+    "license": "DWWM",
+    "authors": [
+        {
+            "name": "N"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": ["src/z/helpers.php"]
+    }
+
+}
