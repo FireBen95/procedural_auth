@@ -77,7 +77,6 @@ declare(strict_types=1);
     function run() : ?array
     {
         global $routes;
-
         
 
         foreach ($routes[$_SERVER['REQUEST_METHOD']] as $route) 
@@ -89,7 +88,7 @@ declare(strict_types=1);
             // Récupérer l'url dont l'application attend la visite
             $request_route = $route[0];
 
-            $pattern = preg_replace("#{[a-z]+}#", "([0-9a-zA-Z-_])", $request_route);
+            $pattern = preg_replace("#{[a-z]+}#", "([0-9a-zA-Z-_]+)", $request_route);
             $pattern = "#^$pattern$#";
 
             if (preg_match($pattern, $request_uri, $matches) ) 
@@ -103,7 +102,7 @@ declare(strict_types=1);
                 if ($parameters) 
                 {
                    return [
-                    "controler" => $controller,
+                    "controller" => $controller,
                     "method" => $method,
                     "parameters" => $parameters
                    ];
@@ -116,6 +115,7 @@ declare(strict_types=1);
                 
             }
 
-            return null;
         }
+        
+        return null;
     }

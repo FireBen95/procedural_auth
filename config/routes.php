@@ -1,7 +1,13 @@
 <?php
 
-    get("/", ["welcomeController", "index"]);
+    get("/", ["visitor/welcome/welcomeController", "index"]);
 
-    get("/edit/1", ["welcomeController", "edit"]);
+    /* ----------------Registration------------------ */
+    get("/register", ["visitor/registration/registrationController", "register"]);
+    post("/register", ["visitor/registration/registrationController", "register"]);
 
-    post("/create", ["welcomeController", "create"]);
+
+    /* ------------------Authentification--------------------- */
+    get("/login", ["visitor/authentication/loginController", "login"]);
+    post("/login", ["visitor/authentication/loginController", "login"]);
+    get("/logout", ["visitor/authentication/loginController", "logout"]);
